@@ -18,9 +18,16 @@ class ValidateISBNTest {
      */
 
     @Test
-    public void checkNumberFormatException() {
+    public void checkNumberFormatException_fullText() {
         Assertions.assertThrows(NumberFormatException.class, () -> {
             new ValidateISBN().validate("helloWorld");
+        });
+    }
+
+    @Test
+    public void checkNumberFormatException_oneLetter() {
+        Assertions.assertThrows(NumberFormatException.class, () -> {
+            new ValidateISBN().validate("05933a0964");
         });
     }
 
